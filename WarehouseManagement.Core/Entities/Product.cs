@@ -12,9 +12,6 @@ public class Product
     [MaxLength(100)]
     public required string ProductName { get; set; } = string.Empty;
 
-    public int CategoryId { get; set; }
-    public int SupplierId { get; set; }
-
     [Column(TypeName = "decimal(18, 2)")]
     public decimal UnitPrice { get; set; }
 
@@ -23,4 +20,16 @@ public class Product
 
     [MaxLength(500)]
     public string? PhotoUrl { get; set; }
+
+    [Required]
+    public int CategoryId { get; set; }
+
+    [Required]
+    public required Category Category { get; set; }
+
+    [Required]
+    public int SupplierId { get; set; }
+
+    [Required]
+    public required Supplier Supplier { get; set; }
 }

@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using WarehouseManagement.Core.Interfaces;
 using WarehouseManagement.Infrastructure.Data;
+using WarehouseManagement.Infrastructure.Repositories;
 
 namespace WarehouseManagement.Web
 {
@@ -14,6 +16,8 @@ namespace WarehouseManagement.Web
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 

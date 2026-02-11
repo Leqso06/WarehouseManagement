@@ -10,4 +10,6 @@ public class Supplier
     [Required]
     [MaxLength(100)]
     public required string SupplierName { get; set; } = string.Empty;
+
+    public ICollection<Product>? Products { get; set; }
 }

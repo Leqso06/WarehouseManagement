@@ -10,4 +10,6 @@ public class Category
     [Required]
     [MaxLength(50)]
     public required string CategoryName { get; set; } = string.Empty;
+
+    public ICollection<Product>? Products { get; set; }
 }
