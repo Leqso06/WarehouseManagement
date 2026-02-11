@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using WarehouseManagement.Infrastructure.Data;
+
 namespace WarehouseManagement.Web
 {
     public class Program
@@ -8,6 +11,9 @@ namespace WarehouseManagement.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
@@ -27,7 +33,7 @@ namespace WarehouseManagement.Web
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Products}/{action=Index}/{id?}")
+                pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();

@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="WarehouseManagement.Core/WarehouseManagement.Core.csproj" />
   <Project Path="WarehouseManagement.Infrastructure/WarehouseManagement.Infrastructure.csproj" />
-  <Project Path="WarehouseManagement.Web/WarehouseManagement.Web.csproj" />
+  <Project Path="WarehouseManagement.Web/WarehouseManagement.Web.csproj" Id="08f7e21c-4d17-4884-975e-0c0805710c72" />
 </Solution>
