@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="WarehouseManagement.Core/WarehouseManagement.Core.csproj" />
+  <Project Path="WarehouseManagement.Infrastructure/WarehouseManagement.Infrastructure.csproj" />
+  <Project Path="WarehouseManagement.Web/WarehouseManagement.Web.csproj" />
+</Solution>
