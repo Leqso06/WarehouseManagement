@@ -19,7 +19,7 @@ public class Product
     public int ReorderLevel { get; set; }
 
     [MaxLength(500)]
-    public string? PhotoUrl { get; set; }
+    public string PhotoUrl { get; set; } = String.Empty;
 
     [Required]
     public int CategoryId { get; set; }
