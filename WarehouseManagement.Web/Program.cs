@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using WarehouseManagement.Core.Interfaces;
+using WarehouseManagement.Core.Interfaces.Repositories;
 using WarehouseManagement.Infrastructure.Data;
+using WarehouseManagement.Infrastructure.Mappings;
 using WarehouseManagement.Infrastructure.Repositories;
 
 namespace WarehouseManagement.Web
@@ -9,6 +10,8 @@ namespace WarehouseManagement.Web
     {
         public static void Main(string[] args)
         {
+            MappingConfig.Configure();
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
