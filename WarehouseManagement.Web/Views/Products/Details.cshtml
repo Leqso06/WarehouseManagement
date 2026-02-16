@@ -1,0 +1,13 @@
+﻿@model WarehouseManagement.Core.DTOs.ProductDto
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>@Model.ProductName</h1>
+<p>Price: @Model.UnitPrice</p>
+<p>Stock: @Model.UnitsInStock</p>
+<p>Reorder Level: @Model.ReorderLevel</p>
+<p>Category: @Model.CategoryName</p>
+<p>Supplier: @Model.SupplierName</p>
+<a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a>
+<a asp-action="Index">Back to list</a>

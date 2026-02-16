@@ -1,10 +1,9 @@
 ﻿using WarehouseManagement.Core.DTOs;
 
-namespace WarehouseManagement.Web.ViewModels;
-
-public class EditProductViewModel
+namespace WarehouseManagement.Web.Models;
+public class CreateProductViewModel
 {
-    public UpdateProductDto Product { get; set; }
+    public CreateProductDto Product { get; set; }
     public IEnumerable<CategoryDto> Categories { get; set; }
     public IEnumerable<SupplierDto> Suppliers { get; set; }
 }

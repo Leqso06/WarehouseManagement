@@ -1,0 +1,49 @@
+﻿@model WarehouseManagement.Core.Common.PagedResult<WarehouseManagement.Core.DTOs.ProductDto>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+<a asp-action="Create" class="btn btn-primary mb-3">Add Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Items)
+        {
+            <tr>
+                <td>@p.ProductName</td>
+                <td>@p.UnitPrice</td>
+                <td>@p.UnitsInStock</td>
+                <td>@p.CategoryName</td>
+                <td>@p.SupplierName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@p.ProductId">Details</a>
+                    <a asp-action="Edit" asp-route-id="@p.ProductId">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@p.ProductId" method="post" style="display:inline">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.HasPreviousPage)
+{
+    <a asp-action="Index" asp-route-page="@(Model.Page - 1)">Previous</a>
+}
+<span>Page @Model.Page of @Model.TotalPages</span>
+@if (Model.HasNextPage)
+{
+    <a asp-action="Index" asp-route-page="@(Model.Page + 1)">Next</a>
+}

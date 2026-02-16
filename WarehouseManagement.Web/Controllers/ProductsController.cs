@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WarehouseManagement.Core.DTOs;
 using WarehouseManagement.Core.Interfaces.Services;
-using WarehouseManagement.Web.ViewModels;
+using WarehouseManagement.Web.Models;
 
 namespace WarehouseManagement.Web.Controllers;
 
@@ -15,7 +15,7 @@ public class ProductsController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Index(int page = 1, int pageSize = 10)
+    public async Task<IActionResult> Index(int page = 1, int pageSize = 50)
     {
         var result = await _productService.GetAllProductsAsync(page, pageSize);
 

@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using WarehouseManagement.Core.Interfaces.Repositories;
+using WarehouseManagement.Core.Interfaces.Services;
 using WarehouseManagement.Infrastructure.Data;
 using WarehouseManagement.Infrastructure.Mappings;
 using WarehouseManagement.Infrastructure.Repositories;
+using WarehouseManagement.Infrastructure.Services;
 
 namespace WarehouseManagement.Web
 {
@@ -21,6 +23,9 @@ namespace WarehouseManagement.Web
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             var app = builder.Build();
 
@@ -40,7 +45,7 @@ namespace WarehouseManagement.Web
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Products}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();
